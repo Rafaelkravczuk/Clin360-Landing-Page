@@ -13,7 +13,7 @@ const faqItems: FaqItem[] = [
   {
     question: "A IA faz diagnóstico ou triagem médica?",
     answer:
-      "Não. A Clin360 é exclusivamente administrativa — agenda consultas, tira dúvidas sobre horários e convênios, e direciona para a especialidade certa. Em conformidade com a Resolução CFM 2.454/2026.",
+      "Não. A Clin360 atua exclusivamente no atendimento administrativo — agendamento, dúvidas sobre horários, convênios e confirmação de consultas. A IA nunca faz diagnóstico, triagem ou qualquer recomendação médica, em total conformidade com a Resolução CFM 2.454/2026.",
   },
   {
     question: "Quanto tempo leva para configurar?",

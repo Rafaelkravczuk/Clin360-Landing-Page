@@ -55,6 +55,21 @@ export default function Contact() {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     if (!validate()) return;
+
+    const text = [
+      `Olá! Sou ${form.nome} da clínica ${form.clinica}.`,
+      form.mensagem ? `\n${form.mensagem}` : "",
+      `\nEmail: ${form.email}`,
+      `Telefone: ${form.telefone}`,
+    ]
+      .filter(Boolean)
+      .join("\n");
+
+    window.open(
+      `https://wa.me/5551999999999?text=${encodeURIComponent(text)}`,
+      "_blank"
+    );
+
     setSubmitted(true);
     setForm(initialForm);
     setErrors({});

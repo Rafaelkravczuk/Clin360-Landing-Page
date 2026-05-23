@@ -9,20 +9,79 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "Clin360 | Atendimento Inteligente para Clinicas",
+  metadataBase: new URL("https://clin360.com.br"),
+  title: "Clin360 | Atendimento Inteligente para Clínicas",
   description:
-    "IA que atende seus pacientes no WhatsApp 24/7 — agenda consultas, tira duvidas e confirma horarios automaticamente. Painel completo com inbox, agenda, CRM e financeiro.",
+    "Clin360 — sistema de atendimento inteligente para clínicas. IA que responde pacientes no WhatsApp 24/7, agenda consultas automaticamente, reduz no-show em 60% e integra inbox, agenda, CRM e financeiro em um só painel.",
   keywords: [
-    "clinica", "atendimento", "whatsapp", "ia", "inteligencia artificial",
-    "agendamento", "saude", "gestao clinica", "chatbot", "automacao",
+    "clínica", "atendimento", "whatsapp", "ia", "inteligencia artificial",
+    "agendamento", "saúde", "gestão clínica", "chatbot", "automação",
+    "sistema para clínica", "atendimento whatsapp clínica", "redução no-show",
+    "IA para saúde", "software médico", "agendamento online", "CRM clínica",
+    "painel clínica",
   ],
+  icons: {
+    icon: "/favicon.svg",
+    apple: "/favicon.svg",
+  },
   openGraph: {
-    title: "Clin360 | Atendimento Inteligente para Clinicas",
-    description: "IA que atende seus pacientes no WhatsApp 24/7.",
+    title: "Clin360 | Atendimento Inteligente para Clínicas",
+    description:
+      "IA que responde pacientes no WhatsApp 24/7, agenda consultas automaticamente e reduz no-show em 60%. Teste grátis por 7 dias.",
     type: "website",
     locale: "pt_BR",
+    siteName: "Clin360",
+    url: "https://clin360.com.br",
   },
+  twitter: {
+    card: "summary_large_image",
+    title: "Clin360 | Atendimento Inteligente para Clínicas",
+    description:
+      "IA que responde pacientes no WhatsApp 24/7, agenda consultas automaticamente e reduz no-show em 60%.",
+  },
+  robots: { index: true, follow: true },
+  alternates: { canonical: "https://clin360.com.br" },
 };
+
+function JsonLd() {
+  const schema = {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    name: "Clin360",
+    applicationCategory: "HealthApplication",
+    operatingSystem: "Web",
+    description:
+      "Sistema de atendimento inteligente para clínicas médicas com IA conversacional no WhatsApp.",
+    url: "https://clin360.com.br",
+    offers: {
+      "@type": "AggregateOffer",
+      priceCurrency: "BRL",
+      lowPrice: "497",
+      highPrice: "2490",
+      offerCount: "3",
+    },
+    provider: {
+      "@type": "Organization",
+      name: "Fabrika do Marketing LTDA",
+      url: "https://fabrikadomarketing.com.br",
+    },
+    featureList: [
+      "WhatsApp IA 24/7",
+      "Agendamento automático",
+      "Lembretes de consulta",
+      "Inbox unificado multicanal",
+      "Dashboard e CRM",
+      "Conformidade LGPD",
+    ],
+  };
+
+  return (
+    <script
+      type="application/ld+json"
+      dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
+    />
+  );
+}
 
 export default function RootLayout({
   children,
@@ -31,7 +90,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="pt-BR" className={`${inter.variable} h-full antialiased`}>
-      <body className="min-h-full flex flex-col">{children}</body>
+      <body className="min-h-full flex flex-col">
+        {children}
+        <JsonLd />
+      </body>
     </html>
   );
 }

@@ -23,56 +23,56 @@ const features = [
     color: "primary" as const,
     title: "IA Conversacional",
     description:
-      "Atende pacientes no WhatsApp como uma recepcionista experiente. Agenda, tira duvidas e confirma consultas automaticamente.",
+      "Atende pacientes no WhatsApp como uma recepcionista experiente. Agenda, tira dúvidas e confirma consultas automaticamente.",
   },
   {
     icon: Calendar,
     color: "secondary" as const,
-    title: "Agendamento Autonomo",
+    title: "Agendamento Autônomo",
     description:
-      "IA agenda consultas sem intervencao humana. Verifica disponibilidade, previne choque de horario e confirma com o paciente.",
+      "IA agenda consultas sem intervenção humana. Verifica disponibilidade, previne choque de horário e confirma com o paciente.",
   },
   {
     icon: MessageSquare,
     color: "accent" as const,
     title: "Inbox Multicanal",
     description:
-      "WhatsApp, Instagram, Email e Widget do site — todas as conversas em um painel unificado com transferencia para humano.",
+      "WhatsApp, Instagram, Email e Widget do site — todas as conversas em um painel unificado com transferência para humano.",
   },
   {
     icon: CalendarDays,
     color: "primary" as const,
     title: "Agenda Visual",
     description:
-      "Agenda completa com visao diaria, semanal e mensal. Bloqueios, recorrencias e confirmacoes automaticas.",
+      "Agenda completa com visão diária, semanal e mensal. Bloqueios, recorrências e confirmações automáticas.",
   },
   {
     icon: Bell,
     color: "secondary" as const,
-    title: "Lembretes Automaticos",
+    title: "Lembretes Automáticos",
     description:
-      "Lembrete 24h antes via WhatsApp. Paciente confirma ou cancela direto no chat, reduzindo faltas em ate 60%.",
+      "Lembrete 24h antes via WhatsApp. Paciente confirma ou cancela direto no chat, reduzindo faltas em até 60%.",
   },
   {
     icon: Users,
     color: "accent" as const,
     title: "CRM de Pacientes",
     description:
-      "Historico completo, pipeline de leads, metricas de retorno e acompanhamento personalizado por paciente.",
+      "Histórico completo, pipeline de leads, métricas de retorno e acompanhamento personalizado por paciente.",
   },
   {
     icon: DollarSign,
     color: "primary" as const,
     title: "Financeiro & Faturamento",
     description:
-      "Controle de receitas, TISS, NFSe, comissoes medicas e relatorios financeiros detalhados.",
+      "Controle de receitas, TISS, NFSe, comissões médicas e relatórios financeiros detalhados.",
   },
   {
     icon: BarChart3,
     color: "secondary" as const,
     title: "Dashboard & BI",
     description:
-      "Metricas em tempo real: agendamentos, taxa de comparecimento, faturamento, desempenho da IA e ROI.",
+      "Métricas em tempo real: agendamentos, taxa de comparecimento, faturamento, desempenho da IA e ROI.",
   },
 ];
 
@@ -120,11 +120,11 @@ export default function Features() {
           className="mx-auto max-w-2xl text-center"
         >
           <h2 className="text-3xl font-extrabold tracking-tight text-foreground sm:text-4xl">
-            Tudo que sua clinica precisa{" "}
-            <span className="gradient-text">em um so lugar</span>
+            Tudo que sua clínica precisa{" "}
+            <span className="gradient-text">em um só lugar</span>
           </h2>
           <p className="mt-4 text-lg text-muted">
-            Da recepcao inteligente ao painel completo de gestao
+            Da recepção inteligente ao painel completo de gestão
           </p>
         </motion.div>
 

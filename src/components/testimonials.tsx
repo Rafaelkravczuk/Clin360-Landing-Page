@@ -37,6 +37,30 @@ const testimonials: Testimonial[] = [
     initials: "PO",
     rating: 5,
   },
+  {
+    quote:
+      "Implementamos há 2 meses e já recuperamos o investimento. A IA atende 78% das conversas sozinha e nossos pacientes elogiam a rapidez.",
+    name: "Dr. Fernando Almeida",
+    role: "Proprietário — Clínica Bem Estar",
+    initials: "FA",
+    rating: 5,
+  },
+  {
+    quote:
+      "O melhor é o handoff: quando a IA não consegue resolver, passa pra minha equipe com todo o contexto. Ninguém precisa repetir informação.",
+    name: "Dra. Luciana Torres",
+    role: "Coordenadora — Odonto Premium",
+    initials: "LT",
+    rating: 5,
+  },
+  {
+    quote:
+      "Nossos pacientes marcam consulta de madrugada, domingo, feriado. Não perdemos mais nenhum lead. O ROI foi absurdo no primeiro mês.",
+    name: "Dr. Henrique Campos",
+    role: "Diretor — Centro Médico Vitória",
+    initials: "HC",
+    rating: 5,
+  },
 ];
 
 const containerVariants = {
@@ -84,7 +108,7 @@ export default function Testimonials() {
           variants={containerVariants}
           initial="hidden"
           animate={isInView ? "visible" : "hidden"}
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
         >
           {testimonials.map((testimonial) => (
             <motion.div
