@@ -33,17 +33,18 @@ interface Plan {
 const plans: Plan[] = [
   {
     name: "Starter",
-    description: "Para consultórios e clínicas pequenas",
+    description: "Para consultórios e profissionais autônomos",
     monthlyPrice: 497,
     annualPrice: 414,
-    includedProfessionals: "Até 2 profissionais",
+    includedProfessionals: "1 profissional",
     features: [
-      "WhatsApp IA 24/7 — mensagens ilimitadas",
+      "WhatsApp IA 24/7 — 1.000 msgs/mês",
       "Agendamento automático",
       "Lembretes e confirmações por WhatsApp",
       "Inbox unificado",
       "Dashboard básico",
-      "Recepcionistas e admins ilimitados",
+      "1 recepcionista/admin incluso",
+      "Subdomínio Clin360",
     ],
     cta: "Começar teste grátis",
   },
@@ -52,15 +53,16 @@ const plans: Plan[] = [
     description: "Para clínicas em crescimento",
     monthlyPrice: 997,
     annualPrice: 831,
-    includedProfessionals: "Até 5 profissionais",
+    includedProfessionals: "Até 3 profissionais",
     features: [
       "Tudo do Starter, mais:",
+      "5.000 msgs de IA/mês",
       "4 canais (WhatsApp, Instagram, Email, Widget)",
       "CRM completo de pacientes",
       "Financeiro e faturamento",
-      "Receitas digitais",
       "Relatórios avançados",
-      "Recepcionistas e admins ilimitados",
+      "3 recepcionistas/admins inclusos",
+      "Domínio personalizado",
     ],
     cta: "Começar teste grátis",
     highlighted: true,
@@ -74,12 +76,14 @@ const plans: Plan[] = [
     includedProfessionals: "Até 10 profissionais",
     features: [
       "Tudo do Profissional, mais:",
+      "Mensagens de IA ilimitadas",
       "Multi-unidades",
+      "Recepcionistas e admins ilimitados",
+      "White-label completo",
       "API personalizada",
       "Suporte prioritário com gerente dedicado",
       "Onboarding e migração dedicados",
       "SLA 99.9%",
-      "Recepcionistas e admins ilimitados",
     ],
     cta: "Falar com consultor",
   },
@@ -93,12 +97,12 @@ const pricingFAQ = [
   {
     question: "Preciso de mais profissionais do que o plano inclui?",
     answer:
-      "Sem problema. Cada profissional adicional custa R$149/mês, independente do plano. Recepcionistas, secretárias e usuários administrativos são sempre gratuitos e ilimitados.",
+      "Sem problema. Cada profissional adicional custa R$149/mês, independente do plano. Recepcionistas e admins extras custam R$49/mês cada (ilimitados no Enterprise).",
   },
   {
-    question: "As mensagens de WhatsApp são realmente ilimitadas?",
+    question: "E se eu exceder o limite de mensagens?",
     answer:
-      "Sim. Todos os planos incluem mensagens ilimitadas de IA pelo WhatsApp — sem pacotes de créditos, sem surpresas na fatura. Seu paciente é atendido 24/7 sem limite.",
+      "No Starter, cada mensagem além das 1.000 custa R$0,15. No Profissional, o excedente é R$0,10 por mensagem. No Enterprise, as mensagens são ilimitadas — sem surpresas na fatura.",
   },
   {
     question: "Existe contrato de fidelidade?",
@@ -119,6 +123,16 @@ const pricingFAQ = [
     question: "Tem taxa de setup ou implantação?",
     answer:
       "Não. O setup é gratuito em todos os planos. Nossa equipe configura a clínica, importa os dados e treina a IA sem custo adicional.",
+  },
+  {
+    question: "O que é o domínio personalizado?",
+    answer:
+      "No plano Profissional e Enterprise, sua clínica pode usar um endereço próprio (ex: painel.suaclinica.com.br) em vez do subdomínio padrão. No Starter, o acesso é via suaclinica.clin360.com.br.",
+  },
+  {
+    question: "O que é white-label?",
+    answer:
+      "Exclusivo do Enterprise: removemos toda a marca Clin360 do sistema. Seu painel, e-mails e mensagens aparecem 100% com a identidade visual da sua clínica.",
   },
 ];
 
@@ -160,8 +174,8 @@ export default function Pricing() {
             <span className="gradient-text">na sua clínica</span>
           </h2>
           <p className="mt-4 text-lg text-muted">
-            Sem fidelidade. Cancele quando quiser. Mensagens ilimitadas em todos
-            os planos.
+            Sem fidelidade. Cancele quando quiser. Setup gratuito em todos os
+            planos.
           </p>
         </motion.div>
 
@@ -247,9 +261,15 @@ export default function Pricing() {
               <span className="text-sm text-muted">/mês</span>
             </div>
             <div className="hidden h-4 w-px bg-primary/20 sm:block" />
-            <div className="flex items-center gap-1.5 text-sm text-muted">
-              <Infinity className="h-4 w-4 text-secondary" />
-              Recepcionistas e admins são sempre gratuitos
+            <div className="flex items-center gap-2">
+              <Users className="h-5 w-5 text-muted" />
+              <span className="text-sm font-semibold text-foreground">
+                Admin/recepcionista extra:
+              </span>
+              <span className="text-lg font-extrabold text-muted">
+                +R$49
+              </span>
+              <span className="text-sm text-muted">/mês</span>
             </div>
           </div>
         </motion.div>
@@ -434,13 +454,23 @@ function PlanCard({
           ))}
         </ul>
 
-        {/* Unlimited messages highlight */}
-        <div className="mt-5 flex items-center gap-2 rounded-lg bg-emerald-50 px-3 py-2">
-          <Infinity className="h-4 w-4 shrink-0 text-secondary" />
-          <span className="text-xs font-semibold text-secondary">
-            Mensagens de IA ilimitadas
-          </span>
-        </div>
+        {/* Messages highlight */}
+        {plan.name === "Enterprise" ? (
+          <div className="mt-5 flex items-center gap-2 rounded-lg bg-emerald-50 px-3 py-2">
+            <Infinity className="h-4 w-4 shrink-0 text-secondary" />
+            <span className="text-xs font-semibold text-secondary">
+              Mensagens de IA ilimitadas
+            </span>
+          </div>
+        ) : (
+          <div className="mt-5 flex items-center gap-2 rounded-lg bg-sky-50 px-3 py-2">
+            <Check className="h-4 w-4 shrink-0 text-primary" />
+            <span className="text-xs font-semibold text-primary">
+              {plan.name === "Starter" ? "1.000" : "5.000"} msgs de IA/mês
+              incluídas
+            </span>
+          </div>
+        )}
 
         {/* CTA */}
         <div className="mt-5">

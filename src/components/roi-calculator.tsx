@@ -67,9 +67,9 @@ const sliders: SliderConfig[] = [
 ];
 
 function getPlanForClinic(atendimentosDia: number) {
-  if (atendimentosDia <= 40)
+  if (atendimentosDia <= 30)
     return { name: "Starter", price: 497 };
-  if (atendimentosDia <= 120)
+  if (atendimentosDia <= 100)
     return { name: "Profissional", price: 997 };
   return { name: "Enterprise", price: 2490 };
 }
