@@ -4,6 +4,7 @@ import Hero from "@/components/hero";
 import ClientLogos from "@/components/client-logos";
 import Features from "@/components/features";
 import Footer from "@/components/footer";
+import ChatWidgetLoader from "@/components/chat-widget-loader";
 
 const ProductDemo = dynamic(() => import("@/components/product-demo"));
 const VideoDemo = dynamic(() => import("@/components/video-demo"));
@@ -16,9 +17,6 @@ const Security = dynamic(() => import("@/components/security"));
 const Cases = dynamic(() => import("@/components/cases"));
 const FAQ = dynamic(() => import("@/components/faq"));
 const Contact = dynamic(() => import("@/components/contact"));
-const ChatWidget = dynamic(() => import("@/components/chat-widget"), {
-  ssr: false,
-});
 
 export default function Home() {
   return (
@@ -39,7 +37,7 @@ export default function Home() {
       <FAQ />
       <Contact />
       <Footer />
-      <ChatWidget />
+      <ChatWidgetLoader />
     </>
   );
 }

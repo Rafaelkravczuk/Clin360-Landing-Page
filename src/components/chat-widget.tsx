@@ -25,6 +25,7 @@ export default function ChatWidget() {
   const [isOpen, setIsOpen] = useState(false);
   const [messages, setMessages] = useState<Message[]>(initialMessages);
   const [inputValue, setInputValue] = useState("");
+  const [isSending, setIsSending] = useState(false);
   const messagesEndRef = useRef<HTMLDivElement>(null);
 
   // Delayed mount after 5 seconds
@@ -36,28 +37,50 @@ export default function ChatWidget() {
   // Auto-scroll to latest message
   useEffect(() => {
     messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
-  }, [messages]);
+  }, [messages, isSending]);
 
-  const handleSend = () => {
+  const handleSend = async () => {
     const trimmed = inputValue.trim();
-    if (!trimmed) return;
+    if (!trimmed || isSending) return;
 
-    // Add user message
-    const userMsg: Message = {
-      id: Date.now(),
-      text: trimmed,
-      sender: "user",
-    };
-
-    // Add demo response
-    const aiMsg: Message = {
-      id: Date.now() + 1,
-      text: "Esta é uma demonstração. Fale conosco pelo WhatsApp!",
-      sender: "ai",
-    };
-
-    setMessages((prev) => [...prev, userMsg, aiMsg]);
+    const userMsg: Message = { id: Date.now(), text: trimmed, sender: "user" };
+    const nextMessages = [...messages, userMsg];
+    setMessages(nextMessages);
     setInputValue("");
+    setIsSending(true);
+
+    try {
+      const res = await fetch("/api/chat", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          messages: nextMessages.map((m) => ({
+            role: m.sender === "user" ? "user" : "assistant",
+            content: m.text,
+          })),
+        }),
+      });
+      const data = await res.json();
+      const reply =
+        typeof data?.reply === "string" && data.reply.trim()
+          ? data.reply
+          : "Fala com a gente pelo WhatsApp que te respondo na hora! 😊";
+      setMessages((prev) => [
+        ...prev,
+        { id: Date.now() + 1, text: reply, sender: "ai" },
+      ]);
+    } catch {
+      setMessages((prev) => [
+        ...prev,
+        {
+          id: Date.now() + 1,
+          text: "Tive um probleminha aqui 😅 Fala com a gente pelo WhatsApp!",
+          sender: "ai",
+        },
+      ]);
+    } finally {
+      setIsSending(false);
+    }
   };
 
   const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
@@ -118,6 +141,15 @@ export default function ChatWidget() {
                   </div>
                 </div>
               ))}
+              {isSending && (
+                <div className="flex justify-start">
+                  <div className="bg-white text-muted shadow-sm border border-border rounded-2xl rounded-bl-md px-3 py-2.5 flex items-center gap-1">
+                    <span className="w-1.5 h-1.5 rounded-full bg-muted/60 animate-bounce [animation-delay:-0.3s]" />
+                    <span className="w-1.5 h-1.5 rounded-full bg-muted/60 animate-bounce [animation-delay:-0.15s]" />
+                    <span className="w-1.5 h-1.5 rounded-full bg-muted/60 animate-bounce" />
+                  </div>
+                </div>
+              )}
               <div ref={messagesEndRef} />
             </div>
 
@@ -129,13 +161,15 @@ export default function ChatWidget() {
                   value={inputValue}
                   onChange={(e) => setInputValue(e.target.value)}
                   onKeyDown={handleKeyDown}
+                  disabled={isSending}
                   placeholder="Digite sua mensagem..."
-                  className="flex-1 text-sm px-3 py-2 rounded-full bg-gray-100 text-foreground placeholder:text-muted outline-none focus:ring-2 focus:ring-primary/30 transition-shadow"
+                  className="flex-1 text-sm px-3 py-2 rounded-full bg-gray-100 text-foreground placeholder:text-muted outline-none focus:ring-2 focus:ring-primary/30 transition-shadow disabled:opacity-60"
                 />
                 <button
                   type="button"
                   onClick={handleSend}
-                  className="w-8 h-8 rounded-full bg-primary text-white flex items-center justify-center hover:bg-primary-dark transition-colors shrink-0 cursor-pointer"
+                  disabled={isSending}
+                  className="w-8 h-8 rounded-full bg-primary text-white flex items-center justify-center hover:bg-primary-dark transition-colors shrink-0 cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed"
                   aria-label="Enviar mensagem"
                 >
                   <Send size={14} />
