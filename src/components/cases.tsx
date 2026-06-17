@@ -2,7 +2,7 @@
 
 import { useRef } from "react";
 import { motion, useInView } from "framer-motion";
-import { Quote, ArrowRight } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 
 /* ------------------------------------------------------------------ */
 /*  Case study data                                                    */
@@ -20,14 +20,13 @@ interface CaseStudy {
   initials: string;
   items: BeforeAfterItem[];
   highlight: string;
-  quote: string;
 }
 
 const cases: CaseStudy[] = [
   {
-    clinic: "Clínica Viva Saúde",
-    specialty: "Dermatologia",
-    initials: "VS",
+    clinic: "Clínica de Dermatologia",
+    specialty: "Cenário ilustrativo",
+    initials: "DE",
     items: [
       { label: "Faltas/semana", before: "15", after: "4" },
       {
@@ -37,14 +36,12 @@ const cases: CaseStudy[] = [
       },
       { label: "Tempo de resposta", before: "8 min", after: "4s" },
     ],
-    highlight: "73% menos faltas",
-    quote:
-      "A IA atende melhor que qualquer recepcionista que já tivemos",
+    highlight: "Menos faltas",
   },
   {
-    clinic: "Instituto Médico Paulista",
-    specialty: "Clínica Geral + Especialidades",
-    initials: "IP",
+    clinic: "Clínica Geral + Especialidades",
+    specialty: "Cenário ilustrativo",
+    initials: "CG",
     items: [
       {
         label: "Ligações/dia perdidas",
@@ -58,14 +55,12 @@ const cases: CaseStudy[] = [
       },
       { label: "Agenda", before: "Manual", after: "Automática" },
     ],
-    highlight: "100% dos contatos atendidos",
-    quote:
-      "Nunca mais perdemos um paciente por não atender",
+    highlight: "Contatos sempre atendidos",
   },
   {
-    clinic: "Odonto Premium",
-    specialty: "Odontologia",
-    initials: "OP",
+    clinic: "Clínica de Odontologia",
+    specialty: "Cenário ilustrativo",
+    initials: "OD",
     items: [
       {
         label: "Custo recepção/mês",
@@ -78,8 +73,7 @@ const cases: CaseStudy[] = [
         after: "2 min",
       },
     ],
-    highlight: "R$5.100 economia/mês",
-    quote: "ROI positivo já no primeiro mês",
+    highlight: "Economia na recepção",
   },
 ];
 
@@ -125,11 +119,11 @@ export default function Cases() {
           className="mb-16 text-center sm:mb-20"
         >
           <h2 className="text-3xl font-bold text-foreground sm:text-4xl lg:text-5xl">
-            Resultados reais de clínicas{" "}
-            <span className="gradient-text">como a sua</span>
+            O impacto que o Clin360 pode ter{" "}
+            <span className="gradient-text">na sua clínica</span>
           </h2>
           <p className="mt-4 text-lg text-muted">
-            Números que falam por si
+            Cenários ilustrativos — os resultados variam conforme cada clínica.
           </p>
         </motion.div>
 
@@ -197,16 +191,6 @@ function CaseCard({ data }: { data: CaseStudy }) {
             {data.highlight}
           </p>
         </div>
-      </div>
-
-      {/* Quote */}
-      <div className="mt-6 flex items-start gap-3 border-t border-border pt-6">
-        <div className="flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-lg bg-primary/10">
-          <Quote className="h-4 w-4 text-primary" />
-        </div>
-        <p className="text-sm leading-relaxed text-foreground/80 italic">
-          &ldquo;{data.quote}&rdquo;
-        </p>
       </div>
     </motion.div>
   );

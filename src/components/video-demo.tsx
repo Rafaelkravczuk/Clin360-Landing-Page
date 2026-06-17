@@ -71,7 +71,7 @@ const tourSlides: TourSlide[] = [
   {
     id: "lembretes",
     title: "Lembretes Automáticos",
-    description: "A IA envia lembretes pelo WhatsApp 24h antes da consulta. O paciente confirma com um clique. No-show reduzido em 60%.",
+    description: "A IA envia lembretes pelo WhatsApp 24h antes da consulta. O paciente confirma com um clique. Menos faltas, sem esforço.",
     icon: Bell,
     color: "from-amber-500 to-orange-400",
     iconBg: "bg-amber-100 text-amber-600",
@@ -633,7 +633,7 @@ function LembretesSlide() {
     { label: "Lembrete enviado (24h antes)", desc: "WhatsApp automático", status: "done" },
     { label: "Paciente confirma", desc: "\"Confirmo! Até amanhã\"", status: "done" },
     { label: "Lembrete do dia (2h antes)", desc: "Lembre-se: consulta às 15h", status: "active" },
-    { label: "Dia da consulta", desc: "No-show reduzido em 60%", status: "pending" },
+    { label: "Dia da consulta", desc: "Paciente comparece", status: "pending" },
   ];
   const patients = [
     { name: "Maria Silva", time: "15:00", status: "Confirmada", color: "text-emerald-600 bg-emerald-50" },
@@ -704,7 +704,7 @@ function LembretesSlide() {
             <div className="rounded-lg bg-emerald-50 p-3 text-center">
               <p className="text-2xl font-extrabold text-emerald-600">80%</p>
               <p className="text-[9px] font-medium text-emerald-700">Confirmação</p>
-              <p className="text-[7px] text-emerald-600/70">+60% vs sem lembretes</p>
+              <p className="text-[7px] text-emerald-600/70">com lembretes ativos</p>
             </div>
           </div>
         </div>

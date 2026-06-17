@@ -38,7 +38,7 @@ const categories: Category[] = [
       { text: "Resposta automática em menos de 5 segundos" },
       { text: "Atendimento 24/7 pelo WhatsApp, Instagram, Email e Widget" },
       { text: "IA conversa de forma natural e humanizada" },
-      { text: "80% das conversas resolvidas sem humano" },
+      { text: "A maioria das conversas resolvida sem humano" },
     ],
   },
   {
@@ -53,7 +53,7 @@ const categories: Category[] = [
     after: [
       { text: "Agendamento automático inteligente sem conflitos" },
       { text: "Agenda visual integrada por profissional" },
-      { text: "No-show reduzido em 60% com lembretes automáticos" },
+      { text: "Menos faltas com lembretes e confirmações automáticos" },
       { text: "Confirmação de consulta via WhatsApp" },
     ],
   },
@@ -83,9 +83,9 @@ const categories: Category[] = [
       { text: "Crescimento limitado pela capacidade da equipe" },
     ],
     after: [
-      { text: "Receita recuperada com redução de 60% no no-show" },
+      { text: "Receita recuperada com a redução das faltas" },
       { text: "Equipe focada no atendimento presencial" },
-      { text: "ROI em menos de 2 meses" },
+      { text: "Retorno do investimento rápido" },
       { text: "Escala sem aumentar equipe" },
     ],
   },
@@ -247,10 +247,10 @@ export default function Comparison() {
           className="mt-14 overflow-hidden rounded-2xl gradient-hero p-8 text-center text-white sm:p-12"
         >
           <p className="mx-auto max-w-3xl text-lg font-semibold leading-relaxed sm:text-xl">
-            Clínicas que implementaram a Clin 360 economizam em média{" "}
-            <span className="font-extrabold">R$ 4.200/mês</span> e recuperam{" "}
-            <span className="font-extrabold">60% dos pacientes</span> que antes
-            desistiam.
+            Com a Clin 360, sua clínica pode{" "}
+            <span className="font-extrabold">economizar com a recepção</span> e{" "}
+            <span className="font-extrabold">recuperar pacientes</span> que hoje
+            desistem por falta de atendimento.
           </p>
           <a
             href="#roi"

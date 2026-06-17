@@ -14,7 +14,7 @@ export const metadata: Metadata = {
   metadataBase: new URL("https://clin360.com.br"),
   title: "Clin360 | Atendimento Inteligente para Clínicas",
   description:
-    "Clin360 — sistema de atendimento inteligente para clínicas. IA que responde pacientes no WhatsApp 24/7, agenda consultas automaticamente, reduz no-show em 60% e integra inbox, agenda, CRM e financeiro em um só painel.",
+    "Clin360 — sistema de atendimento inteligente para clínicas. IA que responde pacientes no WhatsApp 24/7, agenda consultas automaticamente, ajuda a reduzir as faltas e integra inbox, agenda, CRM e financeiro em um só painel.",
   keywords: [
     "clínica", "atendimento", "whatsapp", "ia", "inteligencia artificial",
     "agendamento", "saúde", "gestão clínica", "chatbot", "automação",
@@ -29,7 +29,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Clin360 | Atendimento Inteligente para Clínicas",
     description:
-      "IA que responde pacientes no WhatsApp 24/7, agenda consultas automaticamente e reduz no-show em 60%. Teste grátis por 7 dias.",
+      "IA que responde pacientes no WhatsApp 24/7, agenda consultas automaticamente e ajuda a reduzir as faltas. Teste grátis por 7 dias.",
     type: "website",
     locale: "pt_BR",
     siteName: "Clin360",
@@ -39,7 +39,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Clin360 | Atendimento Inteligente para Clínicas",
     description:
-      "IA que responde pacientes no WhatsApp 24/7, agenda consultas automaticamente e reduz no-show em 60%.",
+      "IA que responde pacientes no WhatsApp 24/7, agenda consultas automaticamente e ajuda a reduzir as faltas.",
   },
   robots: { index: true, follow: true },
   alternates: { canonical: "https://clin360.com.br" },

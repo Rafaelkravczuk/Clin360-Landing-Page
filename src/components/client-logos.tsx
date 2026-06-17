@@ -8,12 +8,12 @@ import { motion, useInView } from "framer-motion";
 /* ------------------------------------------------------------------ */
 
 const clinics = [
-  "Clínica Viva Saúde",
-  "Instituto Médico Paulista",
-  "Odonto Premium",
-  "Centro de Fisioterapia Integral",
-  "Clínica Bem Estar",
-  "Centro Médico Vitória",
+  "Clínicas Médicas",
+  "Odontologia",
+  "Fisioterapia",
+  "Dermatologia",
+  "Psicologia",
+  "Pediatria",
 ];
 
 /* ------------------------------------------------------------------ */
@@ -35,7 +35,7 @@ export default function ClientLogos() {
       >
         {/* Label */}
         <p className="mb-8 text-center text-xs font-medium tracking-widest text-muted uppercase">
-          Confiado por clínicas em todo o Brasil
+          Feito para clínicas de todas as especialidades
         </p>
 
         {/* Desktop: static row */}

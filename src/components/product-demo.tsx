@@ -1099,7 +1099,7 @@ const reminderSteps = [
   { icon: Bell, title: "Lembrete enviado", desc: "WhatsApp automático 24h antes", status: "done" as const, time: "Ter 27/05, 15:00" },
   { icon: PhoneCall, title: "Paciente recebe", desc: "\"Olá Maria! Sua consulta é amanhã às 15h. Confirma?\"", status: "done" as const, time: "Ter 27/05, 15:00" },
   { icon: Check, title: "Paciente confirma", desc: "Status → Confirmada automaticamente", status: "active" as const, time: "Ter 27/05, 15:02" },
-  { icon: Stethoscope, title: "Dia da consulta", desc: "No-show reduzido em 60%", status: "pending" as const, time: "Qua 28/05, 15:00" },
+  { icon: Stethoscope, title: "Dia da consulta", desc: "Paciente comparece", status: "pending" as const, time: "Qua 28/05, 15:00" },
 ];
 
 const reminderPatients = [

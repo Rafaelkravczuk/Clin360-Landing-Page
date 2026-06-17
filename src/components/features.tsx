@@ -51,7 +51,7 @@ const features = [
     color: "secondary" as const,
     title: "Lembretes Automáticos",
     description:
-      "Lembrete 24h antes via WhatsApp. Paciente confirma ou cancela direto no chat, reduzindo faltas em até 60%.",
+      "Lembrete 24h antes via WhatsApp. Paciente confirma ou cancela direto no chat, ajudando a reduzir as faltas.",
   },
   {
     icon: Users,

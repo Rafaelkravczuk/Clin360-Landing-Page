@@ -2,7 +2,7 @@
 
 import { useRef, useEffect, useState } from "react";
 import { motion, useInView } from "framer-motion";
-import { Clock, Zap, TrendingDown, MessageSquare } from "lucide-react";
+import { Clock, Zap, CheckCircle2, MessageSquare } from "lucide-react";
 
 interface StatItem {
   value: string;
@@ -28,10 +28,10 @@ const stats: StatItem[] = [
     suffix: "s",
   },
   {
-    value: "60%",
-    label: "Redução de faltas",
-    icon: TrendingDown,
-    numericValue: 60,
+    value: "100%",
+    label: "Mensagens respondidas",
+    icon: CheckCircle2,
+    numericValue: 100,
     suffix: "%",
   },
   {
