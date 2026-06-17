@@ -97,7 +97,7 @@ const pricingFAQ = [
   {
     question: "Preciso de mais profissionais do que o plano inclui?",
     answer:
-      "Sem problema. Cada profissional adicional custa R$149/mês, independente do plano. Recepcionistas e admins extras custam R$49/mês cada (ilimitados no Enterprise).",
+      "Sem problema. Cada profissional adicional custa R$200/mês, independente do plano. Recepcionistas e admins extras custam R$80/mês cada (ilimitados no Enterprise).",
   },
   {
     question: "E se eu exceder o limite de mensagens?",
@@ -256,7 +256,7 @@ export default function Pricing() {
                 Profissional adicional:
               </span>
               <span className="text-lg font-extrabold text-primary">
-                +R$149
+                +R$200
               </span>
               <span className="text-sm text-muted">/mês</span>
             </div>
@@ -267,7 +267,7 @@ export default function Pricing() {
                 Admin/recepcionista extra:
               </span>
               <span className="text-lg font-extrabold text-muted">
-                +R$49
+                +R$80
               </span>
               <span className="text-sm text-muted">/mês</span>
             </div>
