@@ -1,5 +1,6 @@
-import { Plus, ArrowLeft } from "lucide-react";
+import { ArrowLeft } from "lucide-react";
 import Link from "next/link";
+import LogoMark from "@/components/logo-mark";
 
 export const metadata = {
   title: "Política de Cookies | Clin360",
@@ -20,10 +21,13 @@ export default function CookiesPage() {
         </Link>
 
         <div className="flex items-center gap-3 mb-8">
-          <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-primary">
-            <Plus className="h-5 w-5 text-white" strokeWidth={3} />
-          </div>
-          <span className="text-xl font-bold text-foreground">Clin360</span>
+          <LogoMark gradientId="clinGradCookies" className="h-8 w-8" />
+          <span className="text-xl font-bold text-foreground">
+            Clin
+            <span className="bg-gradient-to-br from-indigo-600 via-blue-500 to-cyan-500 bg-clip-text text-transparent">
+              360
+            </span>
+          </span>
         </div>
 
         <h1 className="text-3xl font-extrabold text-foreground mb-2">

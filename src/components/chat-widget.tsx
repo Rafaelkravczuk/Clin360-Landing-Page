@@ -3,6 +3,7 @@
 import { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { MessageCircle, X, Send } from "lucide-react";
+import LogoMark from "@/components/logo-mark";
 
 interface Message {
   id: number;
@@ -106,12 +107,15 @@ export default function ChatWidget() {
           >
             {/* Header */}
             <div className="gradient-hero px-4 py-3 flex items-center justify-between shrink-0">
-              <div>
-                <h3 className="text-white font-semibold text-sm">Clin 360</h3>
-                <p className="text-white/80 text-xs flex items-center gap-1">
-                  <span className="inline-block w-2 h-2 rounded-full bg-green-300" />
-                  Online agora
-                </p>
+              <div className="flex items-center gap-2">
+                <LogoMark bare className="h-6 w-6 shrink-0 text-white" />
+                <div>
+                  <h3 className="text-white font-semibold text-sm">Clin 360</h3>
+                  <p className="text-white/80 text-xs flex items-center gap-1">
+                    <span className="inline-block w-2 h-2 rounded-full bg-green-300" />
+                    Online agora
+                  </p>
+                </div>
               </div>
               <button
                 type="button"
