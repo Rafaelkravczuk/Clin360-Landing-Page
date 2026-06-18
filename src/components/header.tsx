@@ -3,7 +3,6 @@
 import { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import {
-  Plus,
   Menu,
   X,
   ChevronDown,
@@ -17,6 +16,7 @@ import {
   LogIn,
   Stethoscope,
 } from "lucide-react";
+import LogoMark from "@/components/logo-mark";
 
 const solutionsItems = [
   {
@@ -145,9 +145,10 @@ export default function Header() {
             }}
             className="group flex items-center gap-2.5"
           >
-            <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-primary transition-transform duration-200 group-hover:scale-105">
-              <Plus className="h-5 w-5 text-white" strokeWidth={3} />
-            </div>
+            <LogoMark
+              gradientId="clinGradHeader"
+              className="h-9 w-9 transition-transform duration-200 group-hover:scale-105"
+            />
             <div className="flex flex-col">
               <span
                 className={`text-lg font-bold leading-tight transition-colors duration-300 ${

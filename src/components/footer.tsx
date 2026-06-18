@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { Plus } from "lucide-react";
+import LogoMark from "@/components/logo-mark";
 
 const productLinks = [
   { label: "Funcionalidades", href: "#features" },
@@ -45,9 +45,7 @@ export default function Footer() {
           {/* Column 1: Brand */}
           <div className="col-span-2 sm:col-span-2 lg:col-span-2">
             <div className="flex items-center gap-2 mb-4">
-              <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-primary">
-                <Plus className="h-5 w-5 text-white" strokeWidth={3} />
-              </div>
+              <LogoMark gradientId="clinGradFooter" className="h-8 w-8" />
               <span className="text-xl font-bold text-white">Clin360</span>
             </div>
             <p className="text-slate-400 leading-relaxed max-w-sm text-sm">
