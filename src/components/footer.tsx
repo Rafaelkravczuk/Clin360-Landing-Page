@@ -46,7 +46,12 @@ export default function Footer() {
           <div className="col-span-2 sm:col-span-2 lg:col-span-2">
             <div className="flex items-center gap-2 mb-4">
               <LogoMark gradientId="clinGradFooter" className="h-8 w-8" />
-              <span className="text-xl font-bold text-white">Clin360</span>
+              <span className="text-xl font-bold text-white">
+                Clin
+                <span className="bg-gradient-to-br from-indigo-400 via-blue-400 to-cyan-400 bg-clip-text text-transparent">
+                  360
+                </span>
+              </span>
             </div>
             <p className="text-slate-400 leading-relaxed max-w-sm text-sm">
               Atendimento inteligente para clínicas. IA que agenda, responde e

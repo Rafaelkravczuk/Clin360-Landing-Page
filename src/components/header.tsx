@@ -155,7 +155,16 @@ export default function Header() {
                   scrolled ? "text-foreground" : "text-white"
                 }`}
               >
-                Clin360
+                Clin
+                <span
+                  className={
+                    scrolled
+                      ? "bg-gradient-to-br from-indigo-600 via-blue-500 to-cyan-500 bg-clip-text text-transparent"
+                      : "text-white"
+                  }
+                >
+                  360
+                </span>
               </span>
               <span
                 className={`hidden text-[10px] font-medium leading-tight tracking-wide uppercase sm:block transition-colors duration-300 ${
