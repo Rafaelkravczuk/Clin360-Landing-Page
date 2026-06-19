@@ -51,8 +51,8 @@ const plans: Plan[] = [
   {
     name: "Profissional",
     description: "Para clínicas em crescimento",
-    monthlyPrice: 997,
-    annualPrice: 831,
+    monthlyPrice: 1197,
+    annualPrice: 998,
     includedProfessionals: "Até 3 profissionais",
     features: [
       "Tudo do Starter, mais:",
@@ -71,8 +71,8 @@ const plans: Plan[] = [
   {
     name: "Enterprise",
     description: "Para redes e clínicas de grande porte",
-    monthlyPrice: 2490,
-    annualPrice: 2075,
+    monthlyPrice: 3490,
+    annualPrice: 2908,
     includedProfessionals: "Até 10 profissionais",
     features: [
       "Tudo do Profissional, mais:",
