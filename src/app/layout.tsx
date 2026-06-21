@@ -61,7 +61,7 @@ function JsonLd() {
       "@type": "AggregateOffer",
       priceCurrency: "BRL",
       lowPrice: "497",
-      highPrice: "2490",
+      highPrice: "3490",
       offerCount: "3",
     },
     provider: {
