@@ -10,6 +10,12 @@ import {
   CheckCircle,
   ArrowRight,
 } from "lucide-react";
+import {
+  whatsappLink,
+  trackLead,
+  CONTACT_EMAIL,
+  WHATSAPP_DISPLAY,
+} from "@/lib/site";
 
 interface FormData {
   nome: string;
@@ -52,10 +58,26 @@ export default function Contact() {
     return Object.keys(newErrors).length === 0;
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!validate()) return;
 
+    // 1) Persiste o lead no backend (Supabase). Nao bloqueia o fluxo: se falhar,
+    //    o lead ainda segue para o WhatsApp.
+    try {
+      await fetch("/api/lead", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(form),
+      });
+    } catch {
+      // rede indisponivel — segue para o WhatsApp mesmo assim
+    }
+
+    // 2) Evento de conversao (Meta Pixel + GA4) para o algoritmo otimizar.
+    trackLead();
+
+    // 3) Abre o WhatsApp ja com a mensagem montada.
     const text = [
       `Olá! Sou ${form.nome} da clínica ${form.clinica}.`,
       form.mensagem ? `\n${form.mensagem}` : "",
@@ -64,11 +86,7 @@ export default function Contact() {
     ]
       .filter(Boolean)
       .join("\n");
-
-    window.open(
-      `https://wa.me/5551999999999?text=${encodeURIComponent(text)}`,
-      "_blank"
-    );
+    window.open(whatsappLink(text), "_blank");
 
     setSubmitted(true);
     setForm(initialForm);
@@ -108,7 +126,8 @@ export default function Contact() {
 
             {/* WhatsApp CTA */}
             <a
-              href="https://wa.me/5551999999999"
+              href={whatsappLink()}
+              onClick={() => trackLead()}
               target="_blank"
               rel="noopener noreferrer"
               className="mt-8 inline-flex items-center justify-center gap-3 rounded-full bg-[#25D366] px-8 py-4 text-lg font-semibold text-white shadow-lg shadow-[#25D366]/30 transition-all hover:bg-[#20BD5A] hover:shadow-xl hover:shadow-[#25D366]/40 hover:-translate-y-0.5 w-full sm:w-auto"
@@ -120,18 +139,31 @@ export default function Contact() {
 
             {/* Contact info */}
             <div className="mt-10 space-y-4">
-              <div className="flex items-center gap-3 text-muted">
-                <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-primary/10">
-                  <Mail className="h-5 w-5 text-primary" />
-                </div>
-                <span className="text-base">contato@clin360.com.br</span>
-              </div>
-              <div className="flex items-center gap-3 text-muted">
-                <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-primary/10">
-                  <Phone className="h-5 w-5 text-primary" />
-                </div>
-                <span className="text-base">(51) 99999-9999</span>
-              </div>
+              {CONTACT_EMAIL && (
+                <a
+                  href={`mailto:${CONTACT_EMAIL}`}
+                  className="flex items-center gap-3 text-muted transition-colors hover:text-foreground"
+                >
+                  <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-primary/10">
+                    <Mail className="h-5 w-5 text-primary" />
+                  </div>
+                  <span className="text-base">{CONTACT_EMAIL}</span>
+                </a>
+              )}
+              {WHATSAPP_DISPLAY && (
+                <a
+                  href={whatsappLink()}
+                  onClick={() => trackLead()}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-3 text-muted transition-colors hover:text-foreground"
+                >
+                  <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-primary/10">
+                    <Phone className="h-5 w-5 text-primary" />
+                  </div>
+                  <span className="text-base">{WHATSAPP_DISPLAY}</span>
+                </a>
+              )}
             </div>
           </div>
 

@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import LogoMark from "@/components/logo-mark";
+import { CONTACT_EMAIL, WHATSAPP_DISPLAY } from "@/lib/site";
 
 const productLinks = [
   { label: "Funcionalidades", href: "#features" },
@@ -58,8 +59,12 @@ export default function Footer() {
               organiza — 24 horas por dia, 7 dias por semana.
             </p>
             <div className="mt-6 space-y-2">
-              <p className="text-slate-400 text-sm">contato@clin360.com.br</p>
-              <p className="text-slate-400 text-sm">(51) 99999-9999</p>
+              {CONTACT_EMAIL && (
+                <p className="text-slate-400 text-sm">{CONTACT_EMAIL}</p>
+              )}
+              {WHATSAPP_DISPLAY && (
+                <p className="text-slate-400 text-sm">{WHATSAPP_DISPLAY}</p>
+              )}
             </div>
           </div>
 
