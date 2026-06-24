@@ -7,7 +7,6 @@ import Footer from "@/components/footer";
 import ChatWidgetLoader from "@/components/chat-widget-loader";
 
 const ProductDemo = dynamic(() => import("@/components/product-demo"));
-const VideoDemo = dynamic(() => import("@/components/video-demo"));
 const RoiCalculator = dynamic(() => import("@/components/roi-calculator"));
 const Comparison = dynamic(() => import("@/components/comparison"));
 const HowItWorks = dynamic(() => import("@/components/how-it-works"));
@@ -26,7 +25,6 @@ export default function Home() {
       <ClientLogos />
       <Features />
       <ProductDemo />
-      <VideoDemo />
       <RoiCalculator />
       <Comparison />
       <HowItWorks />

@@ -2,6 +2,7 @@
 
 import { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import { trackCTA } from "@/lib/site";
 import {
   Menu,
   X,
@@ -297,7 +298,10 @@ export default function Header() {
             {/* CTA principal */}
             <a
               href="#contact"
-              onClick={(e) => handleNavClick(e, "#contact")}
+              onClick={(e) => {
+                trackCTA("header_teste_gratis");
+                handleNavClick(e, "#contact");
+              }}
               className={`group relative flex items-center gap-2 rounded-full px-5 py-2.5 text-sm font-semibold transition-all duration-200 hover:scale-[1.02] ${
                 scrolled
                   ? "bg-primary text-white shadow-sm shadow-primary/25 hover:bg-primary-dark hover:shadow-md hover:shadow-primary/30"
@@ -431,7 +435,10 @@ export default function Header() {
               </a>
               <a
                 href="#contact"
-                onClick={(e) => handleNavClick(e, "#contact")}
+                onClick={(e) => {
+                  trackCTA("header_teste_gratis");
+                  handleNavClick(e, "#contact");
+                }}
                 className="flex w-full items-center justify-center gap-2 rounded-xl bg-primary px-5 py-3.5 text-base font-semibold text-white shadow-lg shadow-primary/25 transition-all hover:bg-primary-dark"
               >
                 <Sparkles className="h-4 w-4" />

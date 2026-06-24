@@ -34,14 +34,14 @@ export const metadata: Metadata = {
     locale: "pt_BR",
     siteName: "Clin360",
     url: "https://clin360.com.br",
-    images: [{ url: "/og.png", width: 1200, height: 630, alt: "Clin360" }],
+    images: [{ url: "/og.jpg", width: 1200, height: 630, alt: "Clin360" }],
   },
   twitter: {
     card: "summary_large_image",
     title: "Clin360 | Atendimento Inteligente para Clínicas",
     description:
       "IA que responde pacientes no WhatsApp 24/7, agenda consultas automaticamente e ajuda a reduzir as faltas.",
-    images: ["/og.png"],
+    images: ["/og.jpg"],
   },
   robots: { index: true, follow: true },
   alternates: { canonical: "https://clin360.com.br" },

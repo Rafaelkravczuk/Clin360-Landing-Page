@@ -2,6 +2,7 @@
 
 import { useRef, useState, useEffect, useCallback } from "react";
 import { motion, useInView, AnimatePresence } from "framer-motion";
+import { trackCTA } from "@/lib/site";
 import {
   Sparkles,
   MessageCircle,
@@ -211,11 +212,14 @@ export default function Hero() {
             <div className="mt-8 flex flex-col items-center gap-4 sm:flex-row lg:items-start">
               <a
                 href="#contact"
-                onClick={(e) => handleScroll(e, "#contact")}
+                onClick={(e) => {
+                  trackCTA("hero_teste_gratis");
+                  handleScroll(e, "#contact");
+                }}
                 className="inline-flex h-12 items-center justify-center gap-2 rounded-full bg-white px-7 text-base font-semibold text-primary shadow-lg transition-all hover:scale-[1.03] hover:shadow-xl"
               >
                 <SmartphoneNfc className="h-5 w-5" />
-                Agendar Demonstração
+                Teste grátis 7 dias
               </a>
               <a
                 href="#features"
@@ -225,6 +229,10 @@ export default function Hero() {
                 Ver Funcionalidades
               </a>
             </div>
+
+            <p className="mt-4 text-sm text-white/70">
+              Setup gratuito · Sem cartão de crédito · Cancele quando quiser
+            </p>
 
             <div className="mt-10 flex flex-wrap items-center justify-center gap-5 lg:justify-start">
               {channels.map((ch) => (

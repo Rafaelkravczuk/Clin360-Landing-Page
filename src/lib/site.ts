@@ -31,3 +31,14 @@ export function trackLead(): void {
   window.fbq?.("track", "Lead");
   window.gtag?.("event", "generate_lead");
 }
+
+/**
+ * Sinal leve de engajamento (clique numa CTA que rola ate o formulario).
+ * Usa evento customizado para NAO inflar o evento `Lead` (que e a conversao real).
+ * Ajuda o Meta a aprender quem tem intencao mesmo antes de preencher o form.
+ */
+export function trackCTA(name: string): void {
+  if (typeof window === "undefined") return;
+  window.fbq?.("trackCustom", "CTAClick", { cta: name });
+  window.gtag?.("event", "cta_click", { cta: name });
+}

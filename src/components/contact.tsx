@@ -15,6 +15,7 @@ import {
   trackLead,
   CONTACT_EMAIL,
   WHATSAPP_DISPLAY,
+  WHATSAPP_NUMBER,
 } from "@/lib/site";
 
 interface FormData {
@@ -39,6 +40,8 @@ export default function Contact() {
   const [errors, setErrors] = useState<Partial<Record<keyof FormData, string>>>(
     {}
   );
+  const [submitError, setSubmitError] = useState<string | null>(null);
+  const [submitting, setSubmitting] = useState(false);
   const ref = useRef<HTMLDivElement>(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
@@ -62,32 +65,55 @@ export default function Contact() {
     e.preventDefault();
     if (!validate()) return;
 
-    // 1) Persiste o lead no backend (Supabase). Nao bloqueia o fluxo: se falhar,
-    //    o lead ainda segue para o WhatsApp.
+    setSubmitError(null);
+    setSubmitting(true);
+
+    // 1) Persiste o lead no backend (Supabase) e confirma se gravou de verdade.
+    let persisted = false;
     try {
-      await fetch("/api/lead", {
+      const res = await fetch("/api/lead", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(form),
       });
+      const data = (await res.json().catch(() => null)) as {
+        ok?: boolean;
+        persisted?: boolean;
+      } | null;
+      persisted = res.ok && data?.persisted === true;
     } catch {
-      // rede indisponivel — segue para o WhatsApp mesmo assim
+      // rede indisponivel — tratado abaixo
     }
 
-    // 2) Evento de conversao (Meta Pixel + GA4) para o algoritmo otimizar.
+    const hasWhatsApp = Boolean(WHATSAPP_NUMBER);
+
+    // 2) Se o lead NAO foi salvo E nao ha WhatsApp pra onde mandar, nao finge
+    //    sucesso — evita lead pago perdido + evento de conversao fantasma.
+    if (!persisted && !hasWhatsApp) {
+      setSubmitting(false);
+      setSubmitError(
+        "Não conseguimos registrar seu contato agora. Tente novamente em instantes."
+      );
+      return;
+    }
+
+    // 3) Conversao real (lead salvo no banco ou indo direto pro WhatsApp).
     trackLead();
 
-    // 3) Abre o WhatsApp ja com a mensagem montada.
-    const text = [
-      `Olá! Sou ${form.nome} da clínica ${form.clinica}.`,
-      form.mensagem ? `\n${form.mensagem}` : "",
-      `\nEmail: ${form.email}`,
-      `Telefone: ${form.telefone}`,
-    ]
-      .filter(Boolean)
-      .join("\n");
-    window.open(whatsappLink(text), "_blank");
+    // 4) Abre o WhatsApp com a mensagem montada — somente se houver numero.
+    if (hasWhatsApp) {
+      const text = [
+        `Olá! Sou ${form.nome} da clínica ${form.clinica}.`,
+        form.mensagem ? `\n${form.mensagem}` : "",
+        `\nEmail: ${form.email}`,
+        `Telefone: ${form.telefone}`,
+      ]
+        .filter(Boolean)
+        .join("\n");
+      window.open(whatsappLink(text), "_blank");
+    }
 
+    setSubmitting(false);
     setSubmitted(true);
     setForm(initialForm);
     setErrors({});
@@ -327,13 +353,23 @@ export default function Contact() {
                     />
                   </div>
 
+                  {submitError && (
+                    <p
+                      role="alert"
+                      className="rounded-lg bg-red-50 px-4 py-3 text-sm text-red-700"
+                    >
+                      {submitError}
+                    </p>
+                  )}
+
                   {/* Submit */}
                   <button
                     type="submit"
-                    className="w-full flex items-center justify-center gap-2 rounded-xl bg-primary px-6 py-3.5 text-base font-semibold text-white transition-all hover:bg-primary-dark hover:shadow-lg hover:shadow-primary/25 hover:-translate-y-0.5"
+                    disabled={submitting}
+                    className="w-full flex items-center justify-center gap-2 rounded-xl bg-primary px-6 py-3.5 text-base font-semibold text-white transition-all hover:bg-primary-dark hover:shadow-lg hover:shadow-primary/25 hover:-translate-y-0.5 disabled:opacity-60 disabled:cursor-not-allowed disabled:hover:translate-y-0"
                   >
                     <Send className="h-5 w-5" />
-                    Enviar Mensagem
+                    {submitting ? "Enviando..." : "Enviar Mensagem"}
                   </button>
                 </motion.form>
               )}

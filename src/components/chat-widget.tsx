@@ -110,10 +110,10 @@ export default function ChatWidget() {
               <div className="flex items-center gap-2">
                 <LogoMark bare className="h-6 w-6 shrink-0 text-white" />
                 <div>
-                  <h3 className="text-white font-semibold text-sm">Clin 360</h3>
+                  <h3 className="text-white font-semibold text-sm">Clin360</h3>
                   <p className="text-white/80 text-xs flex items-center gap-1">
                     <span className="inline-block w-2 h-2 rounded-full bg-green-300" />
-                    Online agora
+                    Responde em minutos
                   </p>
                 </div>
               </div>
@@ -197,13 +197,6 @@ export default function ChatWidget() {
         <span className="absolute inset-0 rounded-full bg-primary/40 animate-ping" />
 
         <MessageCircle size={24} className="relative z-10" />
-
-        {/* Unread badge */}
-        {!isOpen && (
-          <span className="absolute -top-1 -right-1 z-20 w-5 h-5 rounded-full bg-red-500 text-white text-xs font-bold flex items-center justify-center ring-2 ring-white">
-            1
-          </span>
-        )}
       </motion.button>
     </div>
   );
