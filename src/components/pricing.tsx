@@ -107,7 +107,7 @@ const pricingFAQ = [
   {
     question: "Existe contrato de fidelidade?",
     answer:
-      "Os 7 dias de teste e os 3 primeiros meses são sem fidelidade: cancele quando quiser, sem multa. Depois disso, você pode aderir a um contrato de 12 meses com condições especiais — nele, o cancelamento antecipado tem multa de 80% do valor restante. No plano anual, o cancelamento vale a partir do próximo ciclo.",
+      "Os 7 dias de teste e os 3 primeiros meses são sem fidelidade: cancele quando quiser, sem multa. Depois, você pode aderir a um plano de 12 meses com benefícios (desconto, setup e migração inclusos). Se cancelar antes do fim, a multa é proporcional aos benefícios recebidos e diminui conforme o tempo de contrato. No plano anual, o cancelamento vale a partir do próximo ciclo.",
   },
   {
     question: "Como funciona o período de teste?",

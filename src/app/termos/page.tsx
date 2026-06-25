@@ -110,14 +110,19 @@ export default function TermosPage() {
                 cancelamento pode ser solicitado a qualquer momento, sem multa;
               </li>
               <li>
-                Após esse período, o cliente poderá aderir, de forma expressa, a
-                um contrato de fidelidade de 12 (doze) meses, com condições
-                especiais;
+                Após esse período, o cliente poderá aderir, de forma livre e
+                expressa, a um plano de 12 (doze) meses, que concede benefícios
+                pela permanência (como desconto na mensalidade, setup e migração
+                sem custo e/ou meses de cortesia), informados no momento da
+                adesão;
               </li>
               <li>
-                Em caso de cancelamento antecipado do contrato de 12 meses, será
-                devida multa equivalente a 80% (oitenta por cento) do valor
-                restante do período contratado;
+                Em caso de cancelamento antecipado do plano de 12 meses, será
+                devida multa proporcional e decrescente, correspondente à
+                recomposição dos benefícios concedidos, reduzida conforme o
+                período já cumprido e limitada ao valor total dos benefícios
+                efetivamente recebidos — não incidindo sobre mensalidades futuras
+                não utilizadas;
               </li>
               <li>
                 Não há reembolso proporcional ao período não utilizado no mês
