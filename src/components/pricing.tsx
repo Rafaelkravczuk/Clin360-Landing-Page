@@ -107,7 +107,7 @@ const pricingFAQ = [
   {
     question: "Existe contrato de fidelidade?",
     answer:
-      "Não. Todos os planos são sem fidelidade. Você pode cancelar a qualquer momento, sem multa. No plano anual, o cancelamento vale a partir do próximo ciclo.",
+      "Os 7 dias de teste e os 3 primeiros meses são sem fidelidade: cancele quando quiser, sem multa. Depois disso, você pode aderir a um contrato de 12 meses com condições especiais — nele, o cancelamento antecipado tem multa de 80% do valor restante. No plano anual, o cancelamento vale a partir do próximo ciclo.",
   },
   {
     question: "Como funciona o período de teste?",
@@ -174,8 +174,8 @@ export default function Pricing() {
             <span className="gradient-text">na sua clínica</span>
           </h2>
           <p className="mt-4 text-lg text-muted">
-            Sem fidelidade. Cancele quando quiser. Setup gratuito em todos os
-            planos.
+            Comece sem compromisso: 3 meses sem fidelidade. Setup gratuito em
+            todos os planos.
           </p>
         </motion.div>
 
@@ -283,7 +283,7 @@ export default function Pricing() {
           className="mt-8 flex flex-wrap items-center justify-center gap-x-6 gap-y-3 text-sm text-muted"
         >
           {[
-            { icon: ShieldCheck, text: "Sem fidelidade" },
+            { icon: ShieldCheck, text: "3 meses sem fidelidade" },
             { icon: FileText, text: "Setup gratuito" },
             { icon: CreditCard, text: "PIX ou Cartão" },
             { icon: QrCode, text: "7 dias grátis" },

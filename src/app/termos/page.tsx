@@ -106,8 +106,18 @@ export default function TermosPage() {
                 de forma recorrente;
               </li>
               <li>
-                O cancelamento pode ser solicitado a qualquer momento, sem
-                fidelidade ou multa;
+                Os 3 (três) primeiros meses após o teste são sem fidelidade: o
+                cancelamento pode ser solicitado a qualquer momento, sem multa;
+              </li>
+              <li>
+                Após esse período, o cliente poderá aderir, de forma expressa, a
+                um contrato de fidelidade de 12 (doze) meses, com condições
+                especiais;
+              </li>
+              <li>
+                Em caso de cancelamento antecipado do contrato de 12 meses, será
+                devida multa equivalente a 80% (oitenta por cento) do valor
+                restante do período contratado;
               </li>
               <li>
                 Não há reembolso proporcional ao período não utilizado no mês
