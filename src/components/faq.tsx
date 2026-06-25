@@ -28,7 +28,7 @@ const faqItems: FaqItem[] = [
   {
     question: "Os dados dos pacientes estão seguros?",
     answer:
-      "Sim. Utilizamos Supabase com criptografia, Row Level Security (isolamento por clínica) e hospedagem na região de São Paulo (sa-east-1) em conformidade com a LGPD.",
+      "Sim. Levamos a segurança a sério: os dados dos pacientes são protegidos com criptografia, isolamento total entre clínicas e controles de acesso rigorosos, em total conformidade com a LGPD.",
   },
   {
     question: "Posso personalizar o tom da IA?",

@@ -79,7 +79,7 @@ const plans: Plan[] = [
       "Mensagens de IA ilimitadas",
       "Multi-unidades",
       "Recepcionistas e admins ilimitados",
-      "White-label completo",
+      "Marca própria completa",
       "API personalizada",
       "Suporte prioritário com gerente dedicado",
       "Onboarding e migração dedicados",
@@ -97,7 +97,7 @@ const pricingFAQ = [
   {
     question: "Preciso de mais profissionais do que o plano inclui?",
     answer:
-      "Sem problema. Cada profissional adicional custa R$200/mês, independente do plano. Recepcionistas e admins extras custam R$80/mês cada (ilimitados no Enterprise).",
+      "Sem problema. Cada profissional adicional custa R$199/mês, independente do plano. Recepcionistas e admins extras custam R$99/mês cada (ilimitados no Enterprise).",
   },
   {
     question: "E se eu exceder o limite de mensagens?",
@@ -130,9 +130,9 @@ const pricingFAQ = [
       "No plano Profissional e Enterprise, sua clínica pode usar um endereço próprio (ex: painel.suaclinica.com.br) em vez do subdomínio padrão. No Starter, o acesso é via suaclinica.clin360.com.br.",
   },
   {
-    question: "O que é white-label?",
+    question: "O que é marca própria?",
     answer:
-      "Exclusivo do Enterprise: removemos toda a marca Clin360 do sistema. Seu painel, e-mails e mensagens aparecem 100% com a identidade visual da sua clínica.",
+      "Exclusivo do Enterprise: o sistema fica 100% com a identidade da sua clínica. Painel, e-mails e mensagens aparecem com a sua marca, sem nenhuma menção à Clin360.",
   },
 ];
 
@@ -256,7 +256,7 @@ export default function Pricing() {
                 Profissional adicional:
               </span>
               <span className="text-lg font-extrabold text-primary">
-                +R$200
+                +R$199
               </span>
               <span className="text-sm text-muted">/mês</span>
             </div>
@@ -267,7 +267,7 @@ export default function Pricing() {
                 Admin/recepcionista extra:
               </span>
               <span className="text-lg font-extrabold text-muted">
-                +R$80
+                +R$99
               </span>
               <span className="text-sm text-muted">/mês</span>
             </div>
